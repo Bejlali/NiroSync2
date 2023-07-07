@@ -32,9 +32,22 @@
               </li>
             </ul> -->
           <div class="d-flex justify-content-between align-items-center pb-2">
-            <header>
-              <span>Showing <strong>10</strong> of <strong>18</strong> Resualts</span>
-            </header>
+            <app-paging-header
+              [totalCount] = "totalCount"
+              [pageNumber] = "ShopParams.pageNumber"
+              [pageSize] = "ShopParams.pageSize"></app-paging-header>
+
+            <!--<header>
+              <span *ngIf="totalCount > 0">Showing
+                 <strong>{{(ShopParams.pageNumber - 1) * ShopParams.pageSize + 1}} -
+                  {{ShopParams.pageNumber * ShopParams.pageSize > totalCount ? totalCount : ShopParams.pageNumber * ShopParams.pageSize }}
+                 </strong>
+                  of
+                   <strong>{{totalCount}}</strong>
+                    Resualts</span>
+                    <span *ngIf="totalCount === 0"> There are <strong>0</strong> Resualt for this filter</span>
+
+            </header> -->
             <div class="d-flex mt-2">
               <input type="text" placeholder="Search" class="form-control me-2">
               <button class="btn btn-outline-primary mx-2">Search</button>
@@ -48,16 +61,10 @@
             </div>
           </div><!--End of  Product cards -->
 
-          <div class="d-flex justify-content-center">
-            <pagination [boundaryLinks]="true"
-            [totalItems]="totalCount"
-            [itemsPerPage]="ShopParams.pageSize"
-            [maxSize]="10"
-            (pageChanged)="onPageChanged($event)"
-            previousText="&lsaquo;"
-            nextText="&rsaquo;"
-            firstText="&laquo;"
-            lastText="&raquo;">
+          <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+            <pagination [boundaryLinks]="true" [totalItems]="totalCount" [itemsPerPage]="ShopParams.pageSize"
+              [maxSize]="10" (pageChanged)="onPageChanged($event)" previousText="&lsaquo;" nextText="&rsaquo;"
+              firstText="&laquo;" lastText="&raquo;">
             </pagination>
           </div>
 
