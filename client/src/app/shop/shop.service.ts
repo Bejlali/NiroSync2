@@ -4,6 +4,7 @@ import { Pagination } from '../shared/models/Pagination';
 import { Product } from '../shared/models/product';
 import { Brand } from '../shared/models/brand';
 import { Type } from '../shared/models/type';
+import { ShopParams } from '../shared/models/shopParams';
 
 
 
@@ -20,11 +21,13 @@ export class ShopService {
   constructor(private http: HttpClient) {}
 
   //create get method for service
-  getProducts(brandId?: number, typeId?: number, sort? : string) {
+ // getProducts(brandId?: number, typeId?: number, sort? : string) {
+  getProducts(ShopParams : ShopParams) {
     let params = new HttpParams();
-    if (brandId) params = params.append('brandId', brandId);
-    if (typeId) params = params.append('typeId', typeId);
-    if (sort) params = params.append('sort', sort);
+    if (ShopParams.brandId > 0) params = params.append('brandId', ShopParams.brandId);
+    if (ShopParams.typeId ) params = params.append('typeId', ShopParams.typeId);
+    //if (ShopParams.sort) params = params.append('sort', ShopParams.sort);
+    params = params.append('sort', ShopParams.sort);
 
     return this.http.get<Pagination<Product[]>>(this.baseUrl + 'products', {
      // params : params, we can change it to just params because params is equel to params
