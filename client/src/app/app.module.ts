@@ -19,7 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ShopModule } from './shop/shop.module';
-import { TabsModule } from 'ngx-bootstrap/tabs';
+
 
 
 @NgModule({
@@ -39,9 +39,6 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     BrowserAnimationsModule,
     HttpClientModule,
     ShopModule,
-    TabsModule.forRoot()
-
-
   ],
   providers: [AuthService, ScreenService, AppInfoService],
   bootstrap: [AppComponent],

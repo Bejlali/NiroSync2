@@ -13,24 +13,14 @@
           </select>
           <h5 class="text-warning" ms-3> Services</h5>
           <ul class="list-group my-3">
-            <li class="list-group-item"
-             *ngFor="let brand of brands"
-              [class.active] = "brand.id === brandIdSelected"
-              [value] = "brand.id"
-              (click) = "onBrandSelected(brand.id)"
-             >{{brand.name}}</li>
+            <li class="list-group-item" *ngFor="let brand of brands" [class.active]="brand.id === brandIdSelected"
+              [value]="brand.id" (click)="onBrandSelected(brand.id)">{{brand.name}}</li>
 
           </ul>
           <h5 class="text-warning" ms-3> Types</h5>
           <ul class="list-group my-3">
-            <li class="list-group-item"
-             *ngFor="let type of types"
-              [class.active] = "type.id === typeIdIdSelected"
-              [value] = "type.id"
-              (click) = "onTypeSelected(type.id)"
-
-
-             >{{type.name}}</li>
+            <li class="list-group-item" *ngFor="let type of types" [class.active]="type.id === typeIdIdSelected"
+              [value]="type.id" (click)="onTypeSelected(type.id)">{{type.name}}</li>
 
           </ul>
 
@@ -52,12 +42,27 @@
             </div>
           </div>
           <!-- Product cards -->
-          <div class="row row-cols-5 g-3">
+          <div class="row row-cols-5 g-3 mb-5">
             <div class="col" *ngFor="let product of products">
               <app-product-item [product]="product"></app-product-item>
             </div>
           </div><!--End of  Product cards -->
+
+          <div class="d-flex justify-content-center">
+            <pagination [boundaryLinks]="true"
+            [totalItems]="77"
+            previousText="&lsaquo;"
+            nextText="&rsaquo;"
+            firstText="&laquo;"
+            lastText="&raquo;">
+            </pagination>
+          </div>
+
         </section>
+
+
+
+
       </div>
     </div>
   </tab>
