@@ -28,6 +28,8 @@ export class ShopService {
     if (ShopParams.typeId ) params = params.append('typeId', ShopParams.typeId);
     //if (ShopParams.sort) params = params.append('sort', ShopParams.sort);
     params = params.append('sort', ShopParams.sort);
+    params = params.append('pageIndex', ShopParams.pageNumber);
+    params = params.append('pageSize', ShopParams.pageSize);
 
     return this.http.get<Pagination<Product[]>>(this.baseUrl + 'products', {
      // params : params, we can change it to just params because params is equel to params
