@@ -1,25 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ShopComponent } from './shop.component';
-import { DxTabsModule } from 'devextreme-angular';
+import { DxButtonModule, DxTabsModule } from 'devextreme-angular';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ProductItemComponent } from './product-item/product-item.component';
 
 
 @NgModule({
-  declarations: [ShopComponent, ProductItemComponent
-
-  ],
+  declarations: [ShopComponent, ProductItemComponent],
   imports: [
     CommonModule,
     DxTabsModule,
     TabsModule.forRoot(),
-    DxTabsModule
-
+    DxTabsModule,
+    DxButtonModule
   ],
 
-  exports: [
-    ShopComponent
-  ],
+  exports: [ShopComponent],
 })
 export class ShopModule {}

@@ -8,9 +8,15 @@
     </a>
     <span class="mb-2">{{product.price | currency}}</span>
 
-    <div class="btn-group mt-auto">
-      <button class="btn btn-outline-secondary fa fa-shopping-cart me-2"></button>
-      <button class="btn btn-outline-secondary">View</button>
+    <div class="btn-group mt-auto" style="direction: rtl;">
+      <!-- <button class="btn btn-outline-secondary fa fa-shopping-cart me-2"></button>
+      <button class="btn btn-outline-secondary">View</button> -->
+
+
+            <dx-button icon="fa-duotone fa-cart-shopping" stylingMode="outlined" type="success"
+              icon="fa fa-shopping-cart"></dx-button>
+            <dx-button icon="fa-duotone fa-cart-shopping" stylingMode="outlined" type="success" icon="fa fa-eye"></dx-button>
+
     </div>
   </div>
 </div>
