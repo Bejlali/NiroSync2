@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Pagination } from '../shared/models/Pagination';
 import { Product } from '../shared/models/product';
+import { Brand } from '../shared/models/brand';
+import { Type } from '../shared/models/type';
 
 
 
@@ -17,12 +19,18 @@ export class ShopService {
 
   constructor(private http: HttpClient) {}
 
-
-
   //create get method for service
   getProducts() {
     return this.http.get<Pagination<Product[]>>(
       this.baseUrl + 'products?pageSize=30'
     );
+  }
+
+  getBrands() {
+    return this.http.get<Brand[]>(this.baseUrl + 'products/brands');
+  }
+
+  getTypes() {
+    return this.http.get<Type[]>(this.baseUrl + 'products/types');
   }
 }
