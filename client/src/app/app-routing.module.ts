@@ -11,9 +11,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
+import { ShopRoutingModule } from './shop/shop-routing.module';
+import { ProductDetailsComponent } from './shop/product-details/product-details.component';
 import { ShopComponent } from './shop/shop.component';
 import { MyhomeComponent } from './pubhome/myhome.component';
-import { ProductDetailsComponent } from './shop/product-details/product-details.component';
 
 
 const routes: Routes = [
@@ -23,18 +24,19 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },
   {
+    path: 'shop',
+    component: ShopComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
     path: 'myhome',
     component: MyhomeComponent,
     canActivate: [AuthGuardService],
   },
+
   {
     path: 'tasks',
     component: TasksComponent,
-    canActivate: [AuthGuardService],
-  },
-  {
-    path: 'shop',
-    component: ShopComponent,
     canActivate: [AuthGuardService],
   },
 
@@ -80,6 +82,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { useHash: false }),
     DxDataGridModule,
     DxFormModule,
+    ShopRoutingModule,
   ],
   providers: [AuthGuardService],
   exports: [RouterModule],

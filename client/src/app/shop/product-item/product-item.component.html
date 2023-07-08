@@ -3,20 +3,25 @@
   <div class="card-body d-flex flex-column">
     <a href="" class="text-decoration-none">
       <h2 style="font-size: medium; font-weight: 700;" class="text-uppercase">
-        {{product.name}}
+        {{product.id}} - {{product.name}}
       </h2>
     </a>
     <span class="mb-2">{{product.price | currency}}</span>
 
-    <div class="btn-group mt-auto" style="direction: rtl;">
-      <!-- <button class="btn btn-outline-secondary fa fa-shopping-cart me-2"></button>
-      <button class="btn btn-outline-secondary">View</button> -->
+    <div class="btn-group mt-auto">
+            <button  type="button" class="btn btn-outline-secondary fa fa-shopping-cart me-2"></button>
+            <button  type="button"  class="btn btn-outline-secondary">View</button>
 
+<!--
+      <dx-button stylingMode="outlined" type="success" icon="fa fa-shopping-cart"
+        style="border-radius: 10%; margin-left: 5px; margin-right: 5px; width: 50%;">
+      </dx-button>
 
-            <dx-button icon="fa-duotone fa-cart-shopping" stylingMode="outlined" type="success"
-              icon="fa fa-shopping-cart" style="border-radius: 10%; margin-left: 5px; margin-right: 5px; width: 50%;"></dx-button>
-            <dx-button icon="fa-duotone fa-cart-shopping" stylingMode="outlined" type="success" icon="fa fa-eye" style="border-radius: 10%; width: 50%;"></dx-button>
+      <dx-button stylingMode="outlined" type="success" icon="fa fa-eye"
+        style="border-radius: 10%; width: 50%;"></dx-button>
+ -->
 
     </div>
+
   </div>
 </div>
