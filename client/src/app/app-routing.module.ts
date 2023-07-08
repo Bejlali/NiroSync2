@@ -12,11 +12,21 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { ShopComponent } from './shop/shop.component';
+import { MyhomeComponent } from './pubhome/myhome.component';
+import { ProductDetailsComponent } from './shop/product-details/product-details.component';
 
 
 const routes: Routes = [
-
-
+  {
+    path: 'shop/:id',
+    component: ProductDetailsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'myhome',
+    component: MyhomeComponent,
+    canActivate: [AuthGuardService],
+  },
   {
     path: 'tasks',
     component: TasksComponent,
@@ -60,7 +70,8 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'myhome',
+    pathMatch: 'full',
   },
 ];
 

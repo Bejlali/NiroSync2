@@ -19,6 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ShopModule } from './shop/shop.module';
+import { PubhomeModule } from './pubhome/pubhome.module';
+import { CoreModule } from './core/core.module';
 
 
 
@@ -39,6 +41,8 @@ import { ShopModule } from './shop/shop.module';
     BrowserAnimationsModule,
     HttpClientModule,
     ShopModule,
+    PubhomeModule,
+    CoreModule
   ],
   providers: [AuthService, ScreenService, AppInfoService],
   bootstrap: [AppComponent],
