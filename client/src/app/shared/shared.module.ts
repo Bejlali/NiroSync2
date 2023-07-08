@@ -5,14 +5,12 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { DxButtonModule, DxTabsModule } from 'devextreme-angular';
 import { PagingHeaderComponent } from './paging-header/paging-header.component';
 import { PagerComponent } from './pager/pager.component';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 
 
 @NgModule({
-  declarations: [
-    PagingHeaderComponent,
-    PagerComponent
-  ],
+  declarations: [PagingHeaderComponent, PagerComponent],
   imports: [
     CommonModule,
     PaginationModule.forRoot(),
@@ -20,6 +18,7 @@ import { PagerComponent } from './pager/pager.component';
     DxTabsModule,
     DxButtonModule,
     DxTabsModule,
+    ButtonsModule.forRoot(),
   ],
   exports: [
     PaginationModule,
@@ -28,7 +27,8 @@ import { PagerComponent } from './pager/pager.component';
     DxButtonModule,
     DxTabsModule,
     PagingHeaderComponent,
-    PagerComponent
+    PagerComponent,
+    ButtonsModule,
   ],
 })
 export class SharedModule {}
