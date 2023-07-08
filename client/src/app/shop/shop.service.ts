@@ -7,10 +7,6 @@ import { Type } from '../shared/models/type';
 import { ShopParams } from '../shared/models/shopParams';
 
 
-
-
-
-
 @Injectable({
   providedIn: 'root',
   //providedIn: ShopModule
@@ -30,6 +26,8 @@ export class ShopService {
     params = params.append('sort', ShopParams.sort);
     params = params.append('pageIndex', ShopParams.pageNumber);
     params = params.append('pageSize', ShopParams.pageSize);
+    if (ShopParams.search) params = params.append('search', ShopParams.search);
+
 
     return this.http.get<Pagination<Product[]>>(this.baseUrl + 'products', {
      // params : params, we can change it to just params because params is equel to params
