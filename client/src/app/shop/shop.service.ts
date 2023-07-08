@@ -17,22 +17,25 @@ export class ShopService {
   constructor(private http: HttpClient) {}
 
   //create get method for service
- // getProducts(brandId?: number, typeId?: number, sort? : string) {
-  getProducts(ShopParams : ShopParams) {
+  // getProducts(brandId?: number, typeId?: number, sort? : string) {
+  getProducts(ShopParams: ShopParams) {
     let params = new HttpParams();
-    if (ShopParams.brandId > 0) params = params.append('brandId', ShopParams.brandId);
-    if (ShopParams.typeId ) params = params.append('typeId', ShopParams.typeId);
+    if (ShopParams.brandId > 0)
+      params = params.append('brandId', ShopParams.brandId);
+    if (ShopParams.typeId) params = params.append('typeId', ShopParams.typeId);
     //if (ShopParams.sort) params = params.append('sort', ShopParams.sort);
     params = params.append('sort', ShopParams.sort);
     params = params.append('pageIndex', ShopParams.pageNumber);
     params = params.append('pageSize', ShopParams.pageSize);
     if (ShopParams.search) params = params.append('search', ShopParams.search);
-
-
     return this.http.get<Pagination<Product[]>>(this.baseUrl + 'products', {
-     // params : params, we can change it to just params because params is equel to params
-      params
+      // params : params, we can change it to just params because params is equel to params
+      params,
     });
+  }
+
+  getProduct(id: number) {
+    return this.http.get<Product>(this.baseUrl + 'products/' + id);
   }
 
   getBrands() {

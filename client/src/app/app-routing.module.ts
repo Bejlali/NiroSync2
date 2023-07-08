@@ -19,12 +19,12 @@ import { MyhomeComponent } from './pubhome/myhome.component';
 
 const routes: Routes = [
   {
-    path: 'shop/:id',
+    path: 'product/:id',
     component: ProductDetailsComponent,
     canActivate: [AuthGuardService],
   },
   {
-    path: 'shop',
+    path: 'products',
     component: ShopComponent,
     canActivate: [AuthGuardService],
   },
