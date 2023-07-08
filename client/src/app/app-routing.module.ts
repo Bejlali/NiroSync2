@@ -13,7 +13,14 @@ import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { ShopComponent } from './shop/shop.component';
 
+
 const routes: Routes = [
+
+  {
+    path: 'shop',
+    loadChildren: () => import('./shop/shop.module').then((m) => m.ShopModule),
+  },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
   {
     path: 'tasks',
     component: TasksComponent,
@@ -55,10 +62,10 @@ const routes: Routes = [
     component: ChangePasswordFormComponent,
     canActivate: [AuthGuardService],
   },
-  {
-    path: '**',
-    redirectTo: 'home',
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'home',
+  // },
 ];
 
 @NgModule({
