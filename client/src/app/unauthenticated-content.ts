@@ -29,7 +29,7 @@ export class UnauthenticatedContentComponent {
       case 'reset-password': return 'Reset Password';
       case 'create-account': return 'Sign Up';
       case 'change-password': return 'Change Password';
-      default: return '';
+      default: return 'myhome';
     }
   }
 

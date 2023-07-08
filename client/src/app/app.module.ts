@@ -21,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShopModule } from './shop/shop.module';
 import { PubhomeModule } from './pubhome/pubhome.module';
 import { CoreModule } from './core/core.module';
-import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 
 
@@ -44,7 +43,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     ShopModule,
     PubhomeModule,
     CoreModule,
-   
+
   ],
   providers: [AuthService, ScreenService, AppInfoService],
   bootstrap: [AppComponent],

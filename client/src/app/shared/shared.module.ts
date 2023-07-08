@@ -17,7 +17,6 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     TabsModule.forRoot(),
     DxTabsModule,
     DxButtonModule,
-    DxTabsModule,
     ButtonsModule.forRoot(),
   ],
   exports: [
@@ -25,7 +24,6 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     TabsModule,
     DxTabsModule,
     DxButtonModule,
-    DxTabsModule,
     PagingHeaderComponent,
     PagerComponent,
     ButtonsModule,
