@@ -14,7 +14,6 @@ import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { ShopRoutingModule } from './shop/shop-routing.module';
 import { ProductDetailsComponent } from './shop/product-details/product-details.component';
 import { ShopComponent } from './shop/shop.component';
-import { MyhomeComponent } from './pubhome/myhome.component';
 
 
 const routes: Routes = [
@@ -26,11 +25,6 @@ const routes: Routes = [
   {
     path: 'products',
     component: ShopComponent,
-    canActivate: [AuthGuardService],
-  },
-  {
-    path: 'myhome',
-    component: MyhomeComponent,
     canActivate: [AuthGuardService],
   },
 
@@ -72,7 +66,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'myhome',
+    redirectTo: '',
     pathMatch: 'full',
   },
 ];
