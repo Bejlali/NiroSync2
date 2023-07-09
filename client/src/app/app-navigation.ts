@@ -10,7 +10,7 @@ export const navigation = [
     items: [
       {
         text: 'Products',
-        path: '/products',
+        path: '/shop',
       },
     ],
   },

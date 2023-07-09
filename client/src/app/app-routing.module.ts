@@ -11,7 +11,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
-import { ShopRoutingModule } from './shop/shop-routing.module';
 
 
 const routes: Routes = [
