@@ -15,7 +15,7 @@ export class ShopComponent implements OnInit {
   products: Product[] = [];
   brands: Brand[] = [];
   types: Type[] = [];
-  /*   brandIdSelected = 0;
+  /*  brandIdSelected = 0;
   typeIdIdSelected = 0;
   sortSelected = 'name'; */
   ShopParams = new ShopParams();

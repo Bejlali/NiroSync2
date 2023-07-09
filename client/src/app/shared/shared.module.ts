@@ -17,16 +17,16 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     TabsModule.forRoot(),
     DxTabsModule,
     DxButtonModule,
-    ButtonsModule.forRoot(),
+    ButtonsModule.forRoot()
   ],
   exports: [
     PaginationModule,
+    PagingHeaderComponent,
+    PagerComponent,
     TabsModule,
     DxTabsModule,
     DxButtonModule,
-    PagingHeaderComponent,
-    PagerComponent,
-    ButtonsModule,
+    ButtonsModule
   ],
 })
 export class SharedModule {}

@@ -68,7 +68,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes, { useHash: false }),
     DxDataGridModule,
     DxFormModule,
-    ShopRoutingModule,
   ],
   providers: [AuthGuardService],
   exports: [RouterModule],
