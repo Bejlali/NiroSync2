@@ -12,20 +12,12 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 import { ShopRoutingModule } from './shop/shop-routing.module';
-import { ProductDetailsComponent } from './shop/product-details/product-details.component';
-import { ShopComponent } from './shop/shop.component';
 
 
 const routes: Routes = [
   {
-    path: 'product/:id',
-    component: ProductDetailsComponent,
-    canActivate: [AuthGuardService],
-  },
-  {
-    path: 'products',
-    component: ShopComponent,
-    canActivate: [AuthGuardService],
+    path: 'shop',
+    loadChildren: () => import('./shop/shop.module').then((m) => m.ShopModule),
   },
 
   {

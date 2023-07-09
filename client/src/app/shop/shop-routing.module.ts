@@ -1,9 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+import { AuthGuardService } from '../shared/services';
+import { ShopComponent } from './shop.component';
 
 const routes: Routes = [
-
+  {
+    path: ':id',
+    component: ProductDetailsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: '',
+    component: ShopComponent,
+    canActivate: [AuthGuardService],
+  },
 ];
 
 @NgModule({

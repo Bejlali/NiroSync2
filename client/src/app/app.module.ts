@@ -18,7 +18,6 @@ import { UnauthenticatedContentModule } from './unauthenticated-content';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { ShopModule } from './shop/shop.module';
 import { PubhomeModule } from './pubhome/pubhome.module';
 import { CoreModule } from './core/core.module';
 
@@ -40,7 +39,6 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ShopModule,
     PubhomeModule,
     CoreModule,
 
