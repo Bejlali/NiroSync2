@@ -7,6 +7,7 @@ export const navigation = [
   {
     text: 'Sales',
     icon: 'product',
+    path: '',
     items: [
       {
         text: 'Products',

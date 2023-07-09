@@ -6,9 +6,7 @@
           <h5 class="text-warning" ms-3> Sort</h5>
           <select name="" id="" class="form-select mb-4" (change)="onSortSelected($event)">
             <option *ngFor="let sort of sortOptions" [value]="sort.value">{{sort.name}}</option>
-            <!--             <option>Alphabetical</option>
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option> -->
+
 
           </select>
           <h5 class="text-warning" ms-3> Services</h5>
@@ -26,19 +24,15 @@
 
         </section>
         <section class="col-10">
-          <!--             <ul>
-              <li class="list-unstyled" *ngFor="let product of products">
-                ({{product.id}}) {{product.name}} - {{product.description}}
-              </li>
-            </ul> -->
+
           <div class="d-flex justify-content-between align-items-center pb-2">
             <app-paging-header [totalCount]="totalCount" [pageNumber]="ShopParams.pageNumber"
               [pageSize]="ShopParams.pageSize"></app-paging-header>
-                <div class="d-flex mt-2">
-                  <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2" #search>
-                  <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
-                  <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
-                </div>
+            <div class="d-flex mt-2">
+              <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2" #search>
+              <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
+              <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
+            </div>
           </div>
           <!-- Product cards -->
           <div class="row row-cols-5 g-3 mb-5">
@@ -48,24 +42,10 @@
           </div><!--End of  Product cards -->
 
           <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
-            <app-pager
-              [totalCount] = "totalCount"
-              [pageSize] = "ShopParams.pageSize"
-              (pageChanged) ="onPageChanged($event)"
-            >
+            <app-pager [totalCount]="totalCount" [pageSize]="ShopParams.pageSize" (pageChanged)="onPageChanged($event)">
             </app-pager>
 
-            <!--<pagination
-             [boundaryLinks]="true"
-              [totalItems]="totalCount"
-               [itemsPerPage]="ShopParams.pageSize"
-              [maxSize]="10"
-              (pageChanged)="onPageChanged($event)"
-              previousText="&lsaquo;"
-               nextText="&rsaquo;"
-              firstText="&laquo;"
-              lastText="&raquo;">
-            </pagination> -->
+
           </div>
 
         </section>
