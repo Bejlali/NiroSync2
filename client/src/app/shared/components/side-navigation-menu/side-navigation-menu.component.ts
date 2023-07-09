@@ -12,7 +12,6 @@ import * as events from 'devextreme/events';
 export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
   @ViewChild(DxTreeViewComponent, { static: true })
   menu!: DxTreeViewComponent;
-  logged : any[]= [];
 
   @Output()
   selectedItemChanged = new EventEmitter<DxTreeViewTypes.ItemClickEvent>();
@@ -28,7 +27,7 @@ export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {
       return;
     }
 
-    this.menu.instance.selectItem(value);
+    //this.menu.instance.selectItem(value);
   }
 
   private _items!: Record <string, unknown>[];

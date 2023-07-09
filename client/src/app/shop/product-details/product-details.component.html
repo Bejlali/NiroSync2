@@ -1,12 +1,12 @@
 <div class="row" *ngIf="product">
-  <div class="col-4">
+  <div class="col-5">
 
-           <button routerLink="/shop/" style="margin: 10px;" class="btn btn-outline-success">Back</button>
+  <button routerLink="/shop/" style="margin: 10px;" class="btn btn-outline-success">Back</button>
 
 
     <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="w-100">
   </div>
-  <div class="col-8 mt-5">
+  <div class="col-7 mt-5">
     <h2 style="font-weight: 800;">{{product.name}}</h2>
     <p><strong>{{product.price | currency}}</strong></p>
     <div class="d-flex justify-content-start align-items-center">
