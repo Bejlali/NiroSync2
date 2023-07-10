@@ -1,5 +1,22 @@
 <div class="card h-100 shadow-sm" *ngIf="product">
-  <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid bg-info">
+      <div class="image position-relative" style="cursor: pointer;">
+
+          <img src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid bg-info">
+          <div class="d-flex align-items-center justify-content-center hover-overlay">
+
+            <dx-button stylingMode="primary" type="" icon="fa fa-shopping-cart"
+              style="border-radius: 10%; margin-left: 5px; margin-right: 5px; width: 50%;">
+            </dx-button>
+
+            <dx-button routerLink="/shop/{{product.id}}" stylingMode="primary" type="" icon="fa fa-eye"
+              style="border-radius: 10%; width: 50%;"></dx-button>
+
+          </div>
+
+      </div>
+
+
+
   <div class="card-body d-flex flex-column">
     <a href="" class="text-decoration-none">
       <h2 style="font-size: medium; font-weight: 700;" class="text-uppercase">
@@ -9,15 +26,5 @@
     </a>
     <span class="mb-2">{{product.price | currency}}</span>
 
-    <div class="btn-group mt-auto">
-
-
-      <dx-button stylingMode="outlined" type="success" icon="fa fa-shopping-cart"
-        style="border-radius: 10%; margin-left: 5px; margin-right: 5px; width: 50%;">
-      </dx-button>
-
-      <dx-button routerLink="/shop/{{product.id}}" stylingMode="outlined" type="success" icon="fa fa-eye"
-        style="border-radius: 10%; width: 50%;"></dx-button>
-    </div>
   </div>
 </div>
