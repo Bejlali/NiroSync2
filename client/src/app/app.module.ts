@@ -21,6 +21,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { HomeModule } from './home/home.module';
 
 
 
@@ -41,6 +43,8 @@ import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
+    CarouselModule.forRoot(),
+    HomeModule
   ],
   providers: [
     AuthService,

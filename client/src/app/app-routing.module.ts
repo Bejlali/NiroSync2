@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: HomeComponent,
+    component: MyhomeComponent,
     data: { breadcrumb: 'Home' },
     canActivate: [AuthGuardService],
   },

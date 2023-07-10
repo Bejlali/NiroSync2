@@ -1,14 +1,14 @@
 export const navigation = [
-  {
+/*   {
     text: 'Home',
     path: '/',
     icon: 'home',
-    items: [
-      {
-        text: 'My Home',
-        path: '/myhome',
-      },
-    ],
+  }, */
+  {
+    text: 'Home',
+    path: '/home',
+    icon: 'home',
+
   },
   {
     text: 'Sales',
