@@ -9,7 +9,12 @@ import { ServerErrorComponent } from './server-error/server-error.component';
 
 
 @NgModule({
-  declarations: [NavBarComponent, TestErrorComponent, NotFoundComponent, ServerErrorComponent],
+  declarations: [
+    NavBarComponent,
+    TestErrorComponent,
+    NotFoundComponent,
+    ServerErrorComponent,
+  ],
   imports: [CommonModule, RouterModule],
   exports: [NavBarComponent],
 })
