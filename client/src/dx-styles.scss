@@ -79,6 +79,9 @@ $side-panel-min-width: 60px;
   margin-top: 20px;
   margin-left: 40px;
 }
+label.xng-breadcrumb-trail {
+  color: #FF5722;
+}
 
 /* Importing Bootstrap SCSS file. */
 @import "./node_modules/bootstrap/scss/bootstrap";
