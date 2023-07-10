@@ -12,12 +12,11 @@ export const navigation = [
         text: 'Products',
         path: '/shop',
       },
-
     ],
   },
 
   {
-    text: 'Examples',
+    text: 'Test',
     icon: 'folder',
     items: [
       {
@@ -27,6 +26,10 @@ export const navigation = [
       {
         text: 'Tasks',
         path: '/tasks',
+      },
+      {
+        text: 'Error Test',
+        path: '/test-error',
       },
     ],
   },

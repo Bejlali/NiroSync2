@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
+import { TestErrorComponent } from './core/test-error/test-error.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
     path: 'shop',
     loadChildren: () => import('./shop/shop.module').then((m) => m.ShopModule),
   },
+  { path: 'test-error', component: TestErrorComponent },
 
   {
     path: 'tasks',
