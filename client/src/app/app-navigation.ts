@@ -3,6 +3,12 @@ export const navigation = [
     text: 'Home',
     path: '/',
     icon: 'home',
+    items: [
+      {
+        text: 'My Home',
+        path: '/myhome',
+      },
+    ],
   },
   {
     text: 'Sales',
