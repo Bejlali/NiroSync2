@@ -19,7 +19,7 @@ import { MyhomeComponent } from './home/myhome.component';
 
 const routes: Routes = [
   {
-    path: 'shop',
+    path: 'products',
     loadChildren: () => import('./shop/shop.module').then((m) => m.ShopModule),
   },
   { path: 'test-error', component: TestErrorComponent },

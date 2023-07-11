@@ -1,17 +1,17 @@
 <div class="card h-100 shadow-sm" *ngIf="product">
       <div class="image position-relative" style="cursor: pointer;">
-        <img style="background-color:#e3e3e3e0;" src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid">
+        <img style="background-color:#efefefe0;" src="{{product.pictureUrl}}" alt="{{product.name}}" class="img-fluid">
         <div class="d-flex align-items-center justify-content-center hover-overlay">
             <dx-button stylingMode="primary" type="success" icon="fa fa-shopping-cart"
               style="border-radius: 10%; margin-left: 5px; margin-right: 5px; width: 50%;">
             </dx-button>
-            <dx-button routerLink="/shop/{{product.id}}" stylingMode="primary" type="success" icon="fa fa-eye"
+            <dx-button routerLink="/products/{{product.id}}" stylingMode="primary" type="success" icon="fa fa-eye"
               style="border-radius: 10%; width: 50%;"></dx-button>
           </div>
       </div>
   <div class="card-body d-flex flex-column">
     <!-- <a href="/shop/{{product.id}}" class="text-decoration-none"> -->
-    <a routerLink="/shop/{{product.id}}" class="text-decoration-none">
+    <a routerLink="/products/{{product.id}}" class="text-decoration-none">
       <h2 style="font-size: medium; font-weight: 700;" class="text-uppercase">
        <!-- {{product.id}} -->
          {{product.name}}
