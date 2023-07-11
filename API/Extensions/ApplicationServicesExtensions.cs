@@ -26,7 +26,7 @@ namespace API.Extensions
                var options = ConfigurationOptions.Parse(config.GetConnectionString("Redis"));
                return ConnectionMultiplexer.Connect(options);
            });
-
+            Services.AddScoped<IBasketRepository, BasketRepository>();
             Services.AddScoped<IProductRepository, ProductRepository>();
             Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
