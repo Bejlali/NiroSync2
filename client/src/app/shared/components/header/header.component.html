@@ -30,15 +30,13 @@
 
 
 
-  <dxi-item location="after" widget="dxButton" cssClass="menu-button" [options]="{
-        icon: 'bell',
-      }">
+  <dxi-item location="after" widget="dxButton" cssClass="menu-button" >
     <div class="dx-field-value">
       <a  routerLink="/basket" class="position-relative">
-        <dx-button class="send" icon="belloutline" text="">
+        <dx-button  class="send" icon="belloutline" text="">
         </dx-button>
         <div *ngIf="(basketService.basketSource$ | async) as basket" class="cart-no">
-          {{getCount(basket.items)}}
+        {{getCount(basket.items)}}
         </div>
       </a>
     </div>

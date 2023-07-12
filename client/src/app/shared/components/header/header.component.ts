@@ -6,7 +6,7 @@ import { UserPanelModule } from '../user-panel/user-panel.component';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CoreModule } from 'src/app/core/core.module';
 import { BasketService } from 'src/app/basket/basket.service';
 import { BasketItem } from '../../models/basket';
@@ -49,11 +49,9 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     public basketService: BasketService
   ) {}
-
   getCount(items: BasketItem[]) {
     return items.reduce((sum, item) => sum + item.quantity, 0);
   }
-
   ngOnInit() {
     this.authService.getUser().then((e) => (this.user = e.data));
   }
@@ -69,9 +67,11 @@ export class HeaderComponent implements OnInit {
     DxButtonModule,
     UserPanelModule,
     DxToolbarModule,
-    CoreModule
+    CoreModule,
+    RouterModule
   ],
   declarations: [ HeaderComponent ],
   exports: [ HeaderComponent ]
 })
+
 export class HeaderModule { }

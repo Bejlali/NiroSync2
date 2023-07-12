@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'basket',
-    loadChildren: () => import('./basket/basket.module').then((m) => m.BasketModule),
+    loadChildren: () => import('./basket/basket.module').then((m) => m.BasketModule)
   },
   { path: 'test-error', component: TestErrorComponent },
   { path: 'not-found', component: NotFoundComponent },

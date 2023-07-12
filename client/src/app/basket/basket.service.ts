@@ -46,31 +46,6 @@ export class BasketService {
     basket.items = this.addOrUpdateItem(basket.items, item, quantity);
     this.setBasket(basket);
   }
-
-  removeItemFromBasket(id: number, quantity = 1) {
-    const basket = this.getCurrentBasketValue();
-    if (!basket) return;
-    const item = basket.items.find((x) => x.id === id);
-    if (item) {
-      item.quantity -= quantity;
-      if (item.quantity === 0) {
-        basket.items = basket.items.filter((x) => x.id !== id);
-      }
-      if (basket.items.length > 0) this.setBasket(basket);
-      else this.deleteBasket(basket);
-    }
-  }
-
-  deleteBasket(basket: Basket) {
-    return this.http.delete(this.baseUrl + 'basket?id=' + basket.id).subscribe({
-      next: () => {
-        this.basketSource.next(null);
-        this.basketTotalSource.next(null);
-        localStorage.removeItem('basket_id');
-      },
-    });
-  }
-
   private addOrUpdateItem(
     items: BasketItem[],
     itemToAdd: BasketItem,
@@ -101,6 +76,30 @@ export class BasketService {
       brand: item.productBrand,
       type: item.productType,
     };
+  }
+
+  removeItemFromBasket(id: number, quantity = 1) {
+    const basket = this.getCurrentBasketValue();
+    if (!basket) return;
+    const item = basket.items.find((x) => x.id === id);
+    if (item) {
+      item.quantity -= quantity;
+      if (item.quantity === 0) {
+        basket.items = basket.items.filter((x) => x.id !== id);
+      }
+      if (basket.items.length > 0) this.setBasket(basket);
+      else this.deleteBasket(basket);
+    }
+  }
+
+  deleteBasket(basket: Basket) {
+    return this.http.delete(this.baseUrl + 'basket?id=' + basket.id).subscribe({
+      next: () => {
+        this.basketSource.next(null);
+        this.basketTotalSource.next(null);
+        localStorage.removeItem('basket_id');
+      },
+    });
   }
 
   private calculateTotals() {
