@@ -37,7 +37,9 @@
       <a  routerLink="/basket" class="position-relative">
         <dx-button class="send" icon="belloutline" text="">
         </dx-button>
-        <div class="cart-no">0</div>
+        <div *ngIf="(basketService.basketSource$ | async) as basket" class="cart-no">
+          {{getCount(basket.items)}}
+        </div>
       </a>
     </div>
   </dxi-item>

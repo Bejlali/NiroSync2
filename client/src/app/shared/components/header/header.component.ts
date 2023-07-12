@@ -7,14 +7,14 @@ import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 
 import { Router } from '@angular/router';
-import { NavBarComponent } from 'src/app/core/nav-bar/nav-bar.component';
 import { CoreModule } from 'src/app/core/core.module';
+import { BasketService } from 'src/app/basket/basket.service';
+import { BasketItem } from '../../models/basket';
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
-
 export class HeaderComponent implements OnInit {
   @Output()
   menuToggle = new EventEmitter<boolean>();
@@ -27,30 +27,40 @@ export class HeaderComponent implements OnInit {
 
   user: IUser | null = { email: '' };
 
-  userMenuItems = [{
-    text: 'Profile',
-    icon: 'user',
-    onClick: () => {
-      this.router.navigate(['/profile']);
-    }
-  },
-  {
-    text: 'Logout',
-    icon: 'runner',
-    onClick: () => {
-      this.authService.logOut();
-    }
-  }];
+  userMenuItems = [
+    {
+      text: 'Profile',
+      icon: 'user',
+      onClick: () => {
+        this.router.navigate(['/profile']);
+      },
+    },
+    {
+      text: 'Logout',
+      icon: 'runner',
+      onClick: () => {
+        this.authService.logOut();
+      },
+    },
+  ];
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    public basketService: BasketService
+  ) {}
+
+  getCount(items: BasketItem[]) {
+    return items.reduce((sum, item) => sum + item.quantity, 0);
+  }
 
   ngOnInit() {
-    this.authService.getUser().then((e) => this.user = e.data);
+    this.authService.getUser().then((e) => (this.user = e.data));
   }
 
   toggleMenu = () => {
     this.menuToggle.emit();
-  }
+  };
 }
 
 @NgModule({
