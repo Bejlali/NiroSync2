@@ -16,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   quantity: number = 0.0; //set default value as 0
   quantityInBasket = 0.0;
 
+
   constructor(
     private shopService: ShopService,
     private activatedRoute: ActivatedRoute,
