@@ -13,8 +13,8 @@ import { take } from 'rxjs';
 })
 export class ProductDetailsComponent implements OnInit {
   product?: Product;
-  quantity: number = 0.00; //set default value as 0
-  quantityInBasket = 0.00;
+  quantity: number = 0.0; //set default value as 0
+  quantityInBasket = 0.0;
 
   constructor(
     private shopService: ShopService,
@@ -76,4 +76,5 @@ export class ProductDetailsComponent implements OnInit {
   get buttonText() {
     return this.quantityInBasket === 0 ? 'Add to basket' : 'Update basket';
   }
+
 }

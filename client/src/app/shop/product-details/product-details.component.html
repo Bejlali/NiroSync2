@@ -27,7 +27,7 @@
         <span class="font-weight-bold" style="font-size: 1.5em;">
           <!-- <input type="number" [(ngModel)]='quantity' -->
           <!-- <input type="number" [(ngModel)]='quantity' step="1" -->
-          <input type="number" [(ngModel)]='quantity'  pattern="\d+(\.\d{1,2})?"
+          <input type="text" [(ngModel)]="quantity"
             style="text-align: center; justify-content: center; width: 120px;" />
         </span>
         <i (click)="incrementQuantity()" class="fa fa-plus-circle text-warning ms-2"
