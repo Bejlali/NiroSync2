@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Core.Entities
 {
     public class CustomerBasket
@@ -10,7 +12,7 @@ namespace Core.Entities
         {
             Id = id;
         }
-
+        [Required]
         public string Id { get; set; }
         public List<BasketItem> Items { get; set; } = new List<BasketItem>();
     }
