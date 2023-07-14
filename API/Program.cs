@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
+builder.Services.AddSwaggerDocumentation();
 
 
 
@@ -23,6 +24,7 @@ AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
 app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseStatusCodePagesWithReExecute("/errors/{0}");
+app.UseSwaggerDocumentation();
 
 // Configure the HTTP request pipeline.
 /* if (app.Environment.IsDevelopment())
@@ -30,9 +32,6 @@ app.UseStatusCodePagesWithReExecute("/errors/{0}");
     app.UseSwagger();
     app.UseSwaggerUI();
 } */
-
-app.UseSwagger();
-app.UseSwaggerUI();
 
 
 app.UseHttpsRedirection();
