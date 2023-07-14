@@ -20,6 +20,7 @@ namespace API.Extensions
 
             services.AddIdentityCore<AppUser>(opt =>
             {
+                //opt.Password.
                 // add identity options here
             })
             .AddEntityFrameworkStores<AppIdentityDbContext>()
