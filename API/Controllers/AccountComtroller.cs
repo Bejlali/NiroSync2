@@ -94,7 +94,7 @@ namespace API.Controllers
         }
 
         [HttpGet("address")]
-        public async Task<ActionResult<AddressDto>> GetUserAddress()
+        public async Task<ActionResult<AddressDto>> GetUserAddress() //rmeans eturn <adressDto>
         {
             //var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
 
