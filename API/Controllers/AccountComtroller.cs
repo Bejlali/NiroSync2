@@ -30,7 +30,11 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
-            var user = await _userManager.FindByEmailFromClaimsPrincipal(User);
+            //var email = User.FindFirstValue(ClaimTypes.Email);
+            // Or use:
+            var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+            var user = await _userManager.FindByEmailAsync(email);  
+            //var user = await _userManager.FindByEmailFromClaimsPrincipal(User);
 
             return new UserDto
             {
@@ -38,7 +42,8 @@ namespace API.Controllers
                 Token = _tokenService.CreateToken(user),
                 DisplayName = user.DisplayName
             };
-        }
+        }     
+
 
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
@@ -91,7 +96,11 @@ namespace API.Controllers
         [HttpGet("address")]
         public async Task<ActionResult<AddressDto>> GetUserAddress()
         {
-            var user = await _userManager.FindUserByClaimsPrincipleWithAddress(User);
+            var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+
+            var user = await _userManager.FindByEmailAsync(email);
+
+            // var user = await _userManager.FindUserByClaimsPrincipleWithAddress(User);
 
             return _mapper.Map<Address, AddressDto>(user.Address);
         }
@@ -100,7 +109,10 @@ namespace API.Controllers
         [HttpPut("address")]
         public async Task<ActionResult<AddressDto>> UpdateUserAddress(AddressDto address)
         {
-            var user = await _userManager.FindUserByClaimsPrincipleWithAddress(User);
+            var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+
+            var user = await _userManager.FindByEmailAsync(email);
+            //var user = await _userManager.FindUserByClaimsPrincipleWithAddress(User);
 
             user.Address = _mapper.Map<AddressDto, Address>(address);
 
