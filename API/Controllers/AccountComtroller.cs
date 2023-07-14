@@ -32,9 +32,9 @@ namespace API.Controllers
         {
             //var email = User.FindFirstValue(ClaimTypes.Email);
             // Or use:
-            var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
-            var user = await _userManager.FindByEmailAsync(email);  
-            //var user = await _userManager.FindByEmailFromClaimsPrincipal(User);
+            //var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+           // var user = await _userManager.FindByEmailAsync(email);  
+            var user = await _userManager.FindByEmailFromClaimsPrincipal(User);
 
             return new UserDto
             {
@@ -96,11 +96,11 @@ namespace API.Controllers
         [HttpGet("address")]
         public async Task<ActionResult<AddressDto>> GetUserAddress()
         {
-            var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+            //var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
 
-            var user = await _userManager.FindByEmailAsync(email);
+           // var user = await _userManager.FindByEmailAsync(email);
 
-            // var user = await _userManager.FindUserByClaimsPrincipleWithAddress(User);
+             var user = await _userManager.FindUserByClaimsPrincipleWithAddress(User);
 
             return _mapper.Map<Address, AddressDto>(user.Address);
         }
@@ -109,10 +109,10 @@ namespace API.Controllers
         [HttpPut("address")]
         public async Task<ActionResult<AddressDto>> UpdateUserAddress(AddressDto address)
         {
-            var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
+            //var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
 
-            var user = await _userManager.FindByEmailAsync(email);
-            //var user = await _userManager.FindUserByClaimsPrincipleWithAddress(User);
+            //var user = await _userManager.FindByEmailAsync(email);
+            var user = await _userManager.FindUserByClaimsPrincipleWithAddress(User);
 
             user.Address = _mapper.Map<AddressDto, Address>(address);
 
