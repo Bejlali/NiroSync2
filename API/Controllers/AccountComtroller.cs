@@ -49,11 +49,8 @@ namespace API.Controllers
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
-
             if (user == null) return Unauthorized(new ApiResponse(401));
-
             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
-
             if (!result.Succeeded) return Unauthorized(new ApiResponse(401));
 
 
@@ -76,7 +73,6 @@ namespace API.Controllers
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
-
             if (!result.Succeeded) return BadRequest(new ApiResponse(400));
 
             return new UserDto
@@ -97,11 +93,8 @@ namespace API.Controllers
         public async Task<ActionResult<AddressDto>> GetUserAddress() //rmeans eturn <adressDto>
         {
             //var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
-
            // var user = await _userManager.FindByEmailAsync(email);
-
              var user = await _userManager.FindUserByClaimsPrincipleWithAddress(User);
-
             return _mapper.Map<Address, AddressDto>(user.Address);
         }
 
@@ -110,16 +103,12 @@ namespace API.Controllers
         public async Task<ActionResult<AddressDto>> UpdateUserAddress(AddressDto address)
         {
             //var email = HttpContext.User?.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value;
-
             //var user = await _userManager.FindByEmailAsync(email);
+
             var user = await _userManager.FindUserByClaimsPrincipleWithAddress(User);
-
             user.Address = _mapper.Map<AddressDto, Address>(address);
-
             var result = await _userManager.UpdateAsync(user);
-
             if (result.Succeeded) return Ok(_mapper.Map<AddressDto>(user.Address));
-
             return BadRequest("Problem updating the user");
         }
     }
