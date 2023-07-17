@@ -40,7 +40,9 @@ export class HeaderComponent implements OnInit {
       text: 'Logout',
       icon: 'runner',
       onClick: () => {
-        this.authService.logOut();
+        //this.authService.logOut();
+        this.accountService.logout();
+         this.router.navigate(['account/login']);
       },
     },
   ];
