@@ -8,6 +8,7 @@ import { PagerComponent } from './pager/pager.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { OrderTotalsComponent } from './order-totals/order-totals.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -22,6 +23,7 @@ import { OrderTotalsComponent } from './order-totals/order-totals.component';
     DxButtonModule,
     ButtonsModule.forRoot(),
     CarouselModule.forRoot(),
+    ReactiveFormsModule
   ],
   exports: [
     PaginationModule,
@@ -32,7 +34,8 @@ import { OrderTotalsComponent } from './order-totals/order-totals.component';
     DxButtonModule,
     ButtonsModule,
     CarouselModule,
-    OrderTotalsComponent
+    OrderTotalsComponent,
+    ReactiveFormsModule
   ],
 })
 export class SharedModule {}
