@@ -30,7 +30,7 @@ export class AuthService {
 
   async logIn(email: string, password: string) {
     try {
-      
+
       this._user = { ...defaultUser, email };
       this.router.navigate([this._lastAuthenticatedPath]);
 
@@ -112,7 +112,7 @@ export class AuthService {
 
   async logOut() {
     this._user = null;
-    this.router.navigate(['/login-form']);
+    this.router.navigate(['/login']);
   }
 }
 
@@ -127,7 +127,7 @@ export class AuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot): boolean {
     const isLoggedIn = this.authService.loggedIn;
     const isAuthForm = [
-      'login-form',
+      'login',
       'reset-password',
       'create-account',
       'change-password/:recoveryCode',
@@ -140,7 +140,7 @@ export class AuthGuardService implements CanActivate {
     }
 
     if (!isLoggedIn && !isAuthForm) {
-      this.router.navigate(['/login-form']);
+      this.router.navigate(['/login']);
     }
 
     if (isLoggedIn) {
