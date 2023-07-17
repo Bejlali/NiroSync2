@@ -10,6 +10,7 @@ import { Router, RouterModule } from '@angular/router';
 import { CoreModule } from 'src/app/core/core.module';
 import { BasketService } from 'src/app/basket/basket.service';
 import { BasketItem } from '../../models/basket';
+import { AccountService } from 'src/app/account/account.service';
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
@@ -47,7 +48,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    public basketService: BasketService
+    public basketService: BasketService,
+    public accountService: AccountService
   ) {}
   getCount(items: BasketItem[]) {
     return items.reduce((sum, item) => sum + item.quantity, 0);

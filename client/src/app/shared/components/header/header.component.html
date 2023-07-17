@@ -30,6 +30,8 @@
 
 
 
+
+
   <dxi-item location="after" widget="dxButton" cssClass="menu-button" >
     <div class="dx-field-value">
       <a  routerLink="/basket" class="position-relative">
@@ -42,8 +44,15 @@
     </div>
   </dxi-item>
 
+  <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+    <dxi-item location="after" widget="" cssClass="menu-button" [options]="{}" style="width: 200px;">
+                    <a routerLink="/account/login" class="btn btn-outline-info me-2">Login</a>
+                    <a routerLink="/account/register" class="btn btn-outline-info me-3">Sign up</a>
+    </dxi-item>
+  </ng-container>
 
-  <dxi-item location="after" locateInMenu="auto" menuItemTemplate="menuItem">
+  <ng-container *ngIf="(accountService.currentUser$ | async) !== null">
+  <dxi-item  location="after" locateInMenu="auto" menuItemTemplate="menuItem">
     <div *dxTemplate="let data of 'item'">
       <dx-button class="user-button authorization" width="210px" height="100%" stylingMode="text">
         <div *dxTemplate="let data of 'content'">
@@ -52,10 +61,14 @@
       </dx-button>
     </div>
   </dxi-item>
+    </ng-container>
+
 
   <div *dxTemplate="let data of 'menuItem'">
     <app-user-panel [user]="user" [menuItems]="userMenuItems" menuMode="list"></app-user-panel>
   </div>
+
+
 </dx-toolbar>
 
 <!--   <div class="dx-field">
