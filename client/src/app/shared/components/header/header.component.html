@@ -1,77 +1,69 @@
-
 <header>
-<dx-toolbar class="header-toolbar">
-  <dxi-item *ngIf="menuToggleEnabled" location="before" widget="dxButton" cssClass="menu-button" [options]="{
+  <dx-toolbar class="header-toolbar">
+
+
+    <dxi-item *ngIf="menuToggleEnabled" location="before" widget="dxButton" cssClass="menu-button" [options]="{
         icon: 'menu',
         stylingMode: 'text',
         onClick: toggleMenu
       }">
-  </dxi-item>
-
-
-
-
-
-  <dxi-item location="before" cssClass="header-title" *ngIf="title" [text]="title">
-    <img src="/assets/logo.png" alt="logo" style="width: 220px; height: 55px;">
-  </dxi-item>
-
-
-  <dxi-item location="after" widget="dxButton" cssClass="menu-button" [options]="{
-          icon: 'event',
-
-        }">
-  </dxi-item>
-  <dxi-item location="after" widget="dxButton" cssClass="menu-button" [options]="{
-          icon: 'bookmark',
-
-        }">
-  </dxi-item>
-
-
-
-
-
-  <dxi-item location="after" widget="dxButton" cssClass="menu-button" >
-    <div class="dx-field-value">
-      <a  routerLink="/basket" class="position-relative">
-        <dx-button  class="send" icon="belloutline" text="">
-        </dx-button>
-        <div *ngIf="(basketService.basketSource$ | async) as basket" class="cart-no">
-        {{getCount(basket.items)}}
-        </div>
-      </a>
-    </div>
-  </dxi-item>
-
-  <ng-container *ngIf="(accountService.currentUser$ | async) === null">
-    <dxi-item location="after" widget="" cssClass="menu-button" [options]="{}" style="width: 200px;">
-                    <a routerLink="/account/login" class="btn btn-outline-primary me-2">Login</a>
-                    <a routerLink="/account/register" class="btn btn-outline-primary me-3">Sign up</a>
     </dxi-item>
-  </ng-container>
 
-  <ng-container *ngIf="(accountService.currentUser$ | async) !== null">
-  <dxi-item  location="after" locateInMenu="auto" menuItemTemplate="menuItem">
-    <div *dxTemplate="let data of 'item'">
-      <dx-button class="user-button authorization" width="210px" height="100%" stylingMode="text">
-        <div *dxTemplate="let data of 'content'">
-          <app-user-panel [user]="user" [menuItems]="userMenuItems" menuMode="context"></app-user-panel>
-        </div>
-      </dx-button>
-    </div>
-  </dxi-item>
+
+    <dxi-item location="before" cssClass="header-title" *ngIf="title" [text]="title">
+      <img src="/assets/logo.png" alt="logo" style="width: 220px; height: 55px;">
+    </dxi-item>
+
+
+    <dxi-item location="after" widget="dxButton" cssClass="menu-button" [options]="{
+          icon: 'event' }">
+    </dxi-item>
+    <dxi-item location="after" widget="dxButton" cssClass="menu-button" [options]="{
+          icon: 'bookmark' }">
+    </dxi-item>
+
+
+    <dxi-item location="after" widget="dxButton" cssClass="menu-button">
+      <div class="dx-field-value">
+        <a routerLink="/basket" class="position-relative">
+          <div *ngIf="(basketService.basketSource$ | async) as basket" class="cart-no">
+            {{getCount(basket.items)}}
+          </div>
+        </a>
+      </div>
+    </dxi-item>
+
+
+    <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+      <dxi-item location="after" widget="" cssClass="menu-button" [options]="{}" style="width: 200px;">
+        <a routerLink="/account/login" class="btn btn-outline-primary me-2">Login</a>
+        <a routerLink="/account/register" class="btn btn-outline-primary me-3">Sign up</a>
+      </dxi-item>
     </ng-container>
 
 
-  <div *dxTemplate="let data of 'menuItem'">
-    <app-user-panel [user]="user" [menuItems]="userMenuItems" menuMode="list"></app-user-panel>
-  </div>
+    <ng-container *ngIf="(accountService.currentUser$ | async) as user">
+      <dxi-item location="after" locateInMenu="auto" menuItemTemplate="menuItem">
+        <div *dxTemplate="let data of 'item'">
+          <dx-button class="user-button authorization" width="210px" height="100%" stylingMode="text">
+            <div *dxTemplate="let data of 'content'">
+              <app-user-panel [user]="user" [menuItems]="userMenuItems" menuMode="context"></app-user-panel>
+
+            </div>
+          </dx-button>
+        </div>
+      </dxi-item>
+    </ng-container>
 
 
-</dx-toolbar>
+    <div *dxTemplate="let data of 'menuItem'">
+      <app-user-panel [user]="user" [menuItems]="userMenuItems" menuMode="list"></app-user-panel>
+    </div>
 
-<!--   <div class="dx-field">
+
+  </dx-toolbar>
+
+  <!--   <div class="dx-field">
     <div class="dx-field-label"></div>
     <div class="dx-field-value">
       <dx-button class="" icon="print" text="" style="border-radius: 10%; margin-right: 5px;">
@@ -80,15 +72,13 @@
       </dx-button>
     </div>
   </div> -->
-    <div >
+  <div>
 
-      <app-section-header ></app-section-header>
-      </div>
+    <app-section-header></app-section-header>
+  </div>
 
 
 
 
 
 </header>
-
-

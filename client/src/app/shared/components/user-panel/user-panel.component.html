@@ -1,10 +1,15 @@
 <div class="user-panel">
-  <div class="user-info">
-    <div class="image-container">
-      <div class="user-image"></div>
-    </div>
-    <div class="user-name">{{user?.email}}</div>
+
+<ng-container *ngIf="(accountService.currentUser$ | async) as user">
+<div class="user-info">
+  <div class="image-container">
+    <div class="user-image"></div>
   </div>
+  <div class="user-name">Welcome {{user?.displayName}}</div>
+</div>
+</ng-container>
+
+
   <dx-context-menu
     *ngIf="menuMode === 'context'"
     [items]="menuItems"
