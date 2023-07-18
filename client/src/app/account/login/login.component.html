@@ -11,21 +11,21 @@
       <div class="text-center mb-4">
         <h5 class="mb-3"></h5>
       </div>
-      <div class="form-floating mb-3">
+ <!--      <div class="form-floating mb-3">
         <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="Email">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating">
         <input type="password" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
-      </div>
+      </div> -->
 
-      <!-- <app-text-input [formControl]="loginForm.controls['email']" [label]="'Email Address'"></app-text-input>
+      <app-text-input [formControl]="loginForm.controls['email']" [label]="'Email Address'"></app-text-input>
       <app-text-input [formControl]="loginForm.controls['password']" [label]="'Password'"
-        [type]="'password'"></app-text-input> -->
+        [type]="'password'"></app-text-input>
 
       <div class="d-grid">
-        <button  class="btn btn-lg btn-danger mt-3" type="submit">Sign in</button>
+        <button  [disabled]="loginForm.invalid" class="btn btn-lg btn-danger mt-3" type="submit">Sign in</button>
       </div>
     </form>
   </div>
