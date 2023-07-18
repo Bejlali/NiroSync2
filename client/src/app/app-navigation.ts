@@ -1,14 +1,9 @@
 export const navigation = [
-/*   {
-    text: 'Home',
-    path: '/',
-    icon: 'home',
-  }, */
+
   {
     text: 'Home',
-    path: '/home',
+    path: 'home',
     icon: 'home',
-
   },
   {
     text: 'Sales',

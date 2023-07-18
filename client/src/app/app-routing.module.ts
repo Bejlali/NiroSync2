@@ -15,22 +15,47 @@ import { TestErrorComponent } from './core/test-error/test-error.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
 import { MyhomeComponent } from './home/myhome.component';
-
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
+    path: 'home',
+    component: MyhomeComponent,
+    data: { breadcrumb: 'Home' },
+  },
+  {
+    path: '',
+    component: MyhomeComponent,
+    data: { breadcrumb: 'Home' },
+  },
+  {
     path: 'products',
+    canActivate: [AuthGuard],
     loadChildren: () => import('./shop/shop.module').then((m) => m.ShopModule),
   },
   {
     path: 'basket',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./basket/basket.module').then((m) => m.BasketModule),
   },
   {
     path: 'checkout',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./checkout/checkout.module').then((m) => m.CheckoutModule),
+  },
+
+  {
+    path: 'tasks',
+    component: TasksComponent,
+    canActivate: [AuthGuard],
+  },
+
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'account',
@@ -38,27 +63,20 @@ const routes: Routes = [
       import('./account/account.module').then((m) => m.AccountModule),
   },
 
-  { path: 'test-error', component: TestErrorComponent },
-  { path: 'not-found', component: NotFoundComponent },
-  { path: 'server-error', component: ServerErrorComponent },
-  { path: 'myhome', component: MyhomeComponent },
-
   {
-    path: 'tasks',
-    component: TasksComponent,
-    canActivate: [AuthGuardService],
-  },
-
-  {
-    path: 'profile',
-    component: ProfileComponent,
-    canActivate: [AuthGuardService],
+    path: 'test-error',
+    component: TestErrorComponent,
+    canActivate: [AuthGuard],
   },
   {
-    path: '',
-    component: MyhomeComponent,
-    data: { breadcrumb: 'Home' },
-    canActivate: [AuthGuardService],
+    path: 'not-found',
+    component: NotFoundComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'server-error',
+    component: ServerErrorComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'login-form',
@@ -68,17 +86,14 @@ const routes: Routes = [
   {
     path: 'reset-password',
     component: ResetPasswordFormComponent,
-    canActivate: [AuthGuardService],
   },
   {
     path: 'create-account',
     component: CreateAccountFormComponent,
-    canActivate: [AuthGuardService],
   },
   {
     path: 'change-password/:recoveryCode',
     component: ChangePasswordFormComponent,
-    canActivate: [AuthGuardService],
   },
   {
     path: '**',
