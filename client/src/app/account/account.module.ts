@@ -4,18 +4,17 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AccountRoutingModule } from './account-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
 
 
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegisterComponent
-  ],
+  declarations: [LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     AccountRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    DxLoadIndicatorModule,
+  ],
 })
-export class AccountModule { }
+export class AccountModule {}
